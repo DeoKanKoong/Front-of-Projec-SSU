@@ -32,6 +32,10 @@
             cursor: pointer;
             border-radius: 5px;
             margin-left: 10px;
+            text-decoration: none; /* 링크에 밑줄 제거 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .sidebar {
             width: 250px;
@@ -81,15 +85,15 @@
 <div class="header">
     <img src="logo.png" alt="Logo">
     <div class="nav-buttons">
-        <button class="nav-button">프로젝트</button>
-        <button class="nav-button">팀원구해슈</button>
+        <a href="/projects" class="nav-button">프로젝트</a>
+        <a href="/articles" class="nav-button">팀원구해슈</a>
     </div>
 </div>
 <div class="sidebar">
     <div class="profile-box">
         <img src="profile-placeholder.png" alt="Profile Image" width="80">
         <div class="message">로그인 후 이용해주세요</div>
-        <a href="/logintologin" class="login-button">로그인</a>
+        <a href="/loginto" class="login-button">로그인</a>
     </div>
 </div>
 <div class="main-content">

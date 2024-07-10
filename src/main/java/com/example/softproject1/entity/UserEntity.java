@@ -4,14 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.HashSet;
-import java.util.Set;
-
 @Entity
 @Setter
 @Getter
 public class UserEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -19,8 +15,9 @@ public class UserEntity {
     @Column(unique = true)
     private String username;
     private String password;
-
+    private String name;
+    private String department;
+    private String grade;
+    private String phoneNumber;
     private String role;
-
-
 }

@@ -12,25 +12,18 @@ public class CustomUserDetails implements UserDetails {
     private UserEntity userEntity;
 
     public CustomUserDetails(UserEntity userEntity) {
-
         this.userEntity = userEntity;
     }
 
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-
         Collection<GrantedAuthority> collection = new ArrayList<>();
-
         collection.add(new GrantedAuthority() {
-
             @Override
             public String getAuthority() {
-
                 return userEntity.getRole();
             }
         });
-
         return collection;
     }
 
@@ -43,7 +36,6 @@ public class CustomUserDetails implements UserDetails {
     public String getUsername() {
         return userEntity.getUsername();
     }
-
 
     @Override
     public boolean isAccountNonExpired() {
@@ -63,5 +55,23 @@ public class CustomUserDetails implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    // Additional getters for new fields
+
+    public String getName() {
+        return userEntity.getName();
+    }
+
+    public String getDepartment() {
+        return userEntity.getDepartment();
+    }
+
+    public String getGrade() {
+        return userEntity.getGrade();
+    }
+
+    public String getPhoneNumber() {
+        return userEntity.getPhoneNumber();
     }
 }

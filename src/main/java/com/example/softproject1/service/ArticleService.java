@@ -3,7 +3,9 @@ package com.example.softproject1.service;
 
 import com.example.softproject1.dto.ArticleForm;
 import com.example.softproject1.entity.Article;
+import com.example.softproject1.entity.UserEntity;
 import com.example.softproject1.repository.ArticleRepository;
+import com.example.softproject1.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -18,6 +21,7 @@ import java.util.stream.Collectors;
 public class ArticleService {
     @Autowired
     private ArticleRepository articleRepository;
+
     public List<Article> index(){
         return articleRepository.findAll();
     }
@@ -61,5 +65,7 @@ public class ArticleService {
                 .orElseThrow(()->new IllegalArgumentException("결제 실패!"));
         return articleList;
     }
+
+
 
 }

@@ -3,6 +3,7 @@ import com.example.softproject1.dto.CommentDto;
 import com.example.softproject1.repository.ArticleRepository;
 import com.example.softproject1.dto.ArticleForm;
 import com.example.softproject1.entity.Article;
+import com.example.softproject1.service.ArticleService;
 import com.example.softproject1.service.CommentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
@@ -23,7 +25,8 @@ public class ArticleController {
     private ArticleRepository articleRepository;
     @Autowired
     private CommentService commentService;
-
+    @Autowired
+    private ArticleService articleService;
     @GetMapping("/articles/new")
     public String newArticleForm() {
         return "articles/new";
@@ -46,7 +49,7 @@ public class ArticleController {
         List<CommentDto> commentsDtos=commentService.comments(id);
         model.addAttribute("article", articleEntity);
         model.addAttribute("commentDtos", commentsDtos);
-        return "/articles/show";
+        return "articles/show";
     }
     @GetMapping("/articles")
     public String index(Model model){
@@ -87,5 +90,8 @@ public class ArticleController {
         // 3. 결과 페이지로 리다이렉트하기
         return "redirect:/articles";
     }
+
+
+
 
 }

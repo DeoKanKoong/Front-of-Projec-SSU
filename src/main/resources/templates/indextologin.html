@@ -112,6 +112,12 @@
 </div>
 <div class="main-content">
     <!-- 메인 컨텐츠가 여기에 들어갑니다 -->
+    <div>
+        <h2 th:onclick="'window.location.href=\'/articles\''">📖💻 함께 할 팀 찾아보기</h2>
+        <div th:each="article : ${articles}">
+            <div class="article-list" th:text="${article.title}" th:onclick="'window.location.href=\'/articles\''"></div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

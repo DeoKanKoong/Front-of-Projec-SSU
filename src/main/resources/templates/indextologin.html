@@ -101,8 +101,8 @@
 <div class="sidebar">
     <div class="profile-box">
         <img src="profile-placeholder.png" alt="Profile Image" width="80">
-        <div class="name">이름: 김영한</div>
-        <div class="role">학과(부): 소프트웨어학부(데베)</div>
+        <div class="name">이름: <span th:text="${name}">김영한</span></div>
+        <div class="role">학과(부): <span th:text="${department}">소프트웨어학부(데베)</span></div>
         <button class="profile-button">프로필(데베)</button>
         <a href="/logout" class="logout-button">로그아웃</a>
     </div>

@@ -20,6 +20,7 @@
         }
         .header img {
             height: 50px;
+            cursor: pointer;
         }
         .header .nav-button {
             background-color: #b69fca;
@@ -92,9 +93,9 @@
 </head>
 <body>
 <div class="header">
-    <img src="logo.png" alt="Logo">
+    <img src="logo.png" alt="Logo" onclick="window.location.href='/'">
     <div>
-        <button class="nav-button">프로젝트</button>
+        <button class="nav-button" onclick="window.location.href='/project'">프로젝트</button>
         <button class="nav-button" onclick="window.location.href='/articles'">팀원구해슈</button>
     </div>
 </div>

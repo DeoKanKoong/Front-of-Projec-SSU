@@ -2,10 +2,8 @@ package com.example.softproject1.controller;
 
 import com.example.softproject1.dto.CustomUserDetails;
 import com.example.softproject1.entity.Article;
-import com.example.softproject1.entity.Board;
 import com.example.softproject1.entity.UserEntity;
 import com.example.softproject1.repository.ArticleRepository;
-import com.example.softproject1.repository.BoardRepository;
 import com.example.softproject1.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -54,4 +52,13 @@ public class MainController {
         return "indextologin";
     }
 
+    @GetMapping("/profile")
+    public String profile(Model model) {
+        CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = userDetails.getUsername();
+        UserEntity user = userRepository.findByUsername(username);
+
+        model.addAttribute("user", user);
+        return "profile";
+    }
 }

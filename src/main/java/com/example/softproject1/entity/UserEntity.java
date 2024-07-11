@@ -19,5 +19,10 @@ public class UserEntity {
     private String department;
     private String grade;
     private String phoneNumber;
+    private String email;
     private String role;
+    private String jobStack;
+    private String portfolio;
+    private String description;
+
 }

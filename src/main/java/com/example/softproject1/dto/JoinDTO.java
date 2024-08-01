@@ -13,7 +13,6 @@ public class JoinDTO {
     private String grade;
     private String phoneNumber;
     private String email;
-    private String jobStack;
+    private String Introduce;
     private String portfolio;
-    private String description;
 }

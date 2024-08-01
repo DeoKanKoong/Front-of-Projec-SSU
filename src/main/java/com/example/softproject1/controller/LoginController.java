@@ -11,5 +11,16 @@ public class LoginController {
 
         return "login";
     }
+    @GetMapping("/ForgottenId")
+    public String forgetId() {
+
+        return "ForgottenId";
+    }
+    @GetMapping("/ForgottenPw")
+    public String forgetP() {
+
+        return "ForgottenPw";
+    }
+
 
 }

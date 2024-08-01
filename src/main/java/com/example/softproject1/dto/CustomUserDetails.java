@@ -79,15 +79,11 @@ public class CustomUserDetails implements UserDetails {
         return userEntity.getEmail();
     }
 
-    public String getJobStack() {
-        return userEntity.getJobStack();
+    public String getIntroduce() {
+        return userEntity.getIntroduce();
     }
 
     public String getPortfolio() {
         return userEntity.getPortfolio();
-    }
-
-    public String getDescription() {
-        return userEntity.getDescription();
     }
 }

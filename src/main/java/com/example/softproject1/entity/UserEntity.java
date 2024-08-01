@@ -21,8 +21,8 @@ public class UserEntity {
     private String phoneNumber;
     private String email;
     private String role;
-    private String jobStack;
+    private String Introduce;
     private String portfolio;
-    private String description;
+
 
 }

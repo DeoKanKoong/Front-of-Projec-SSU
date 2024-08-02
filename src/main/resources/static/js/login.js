@@ -5,15 +5,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function redirectToJoin() {
-    window.location.href = '/join.html';
+    window.location.href = '/join';
 }
 
 function redirectToForgottenId() {
-    window.location.href = '/ForgottenId.html';
+    window.location.href = '/ForgottenId';
 }
 
 function redirectToForgottenPw() {
-    window.location.href = '/ForgottenPw.html';
+    window.location.href = '/ForgottenPw';
 }
 
 function validateForm() {

@@ -55,7 +55,7 @@ function validateForm() {
     }
 
     if (valid) {
-        window.location.href = "/login.html";
+        window.location.href = "/login";
     }
 }
 

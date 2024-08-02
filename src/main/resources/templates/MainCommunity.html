@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이페이지</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'S-Core Dream';
+            src: url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream5.woff2) format('woff2'),
+                url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream5.woff) format('woff');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'S-Core Dream', sans-serif;
+            background: #EBEDF3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 80%;
+            max-width: 1200px;
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .profile, .board-preview {
+            background: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .profile {
+            flex: 1;
+            max-width: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 29px;
+        }
+
+        .profile img {
+            width: 74.91px;
+            height: 77.97px;
+            background: linear-gradient(0deg, #B086FD 0%, #B086FD 100%);
+            border-radius: 688px;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            text-align: center;
+        }
+
+        .profile-info div {
+            font-size: 20px;
+            font-family: 'S-Core Dream';
+            font-weight: 500;
+            color: black;
+        }
+
+        .profile-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 17px;
+            width: 100%;
+        }
+
+        .profile-actions div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #925FF0;
+            border-radius: 229px;
+            padding: 10px;
+            color: white;
+            font-size: 14px;
+            font-family: 'S-Core Dream';
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .board-preview {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .board-item {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            gap: 10px;
+        }
+
+        .board-item-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .board-item-desc {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .board-item-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <iframe src="navbar.html" frameborder="0" style="width: 100%; height: 93px;"></iframe>
+    <div class="content">
+        <div class="profile">
+            <div>
+                <img src="https://via.placeholder.com/75x78" alt="Profile Picture" />
+                <div class="profile-info">
+                    <div>이름: 김덕환</div>
+                    <div>학과(부): 소프트웨어학부</div>
+                </div>
+            </div>
+            <div class="profile-actions">
+                <div>로그아웃</div>
+                <div>마이페이지</div>
+                <div>내가 쓴 글</div>
+                <div>내가 지원한 프로젝트</div>
+            </div>
+        </div>
+
+        <div class="board-preview">
+            <div class="board-item">
+                <div class="board-item-title">게시글 제목 1</div>
+                <div class="board-item-desc">게시글 간단한 설명...</div>
+                <div class="board-item-meta">
+                    <div>작성자: 홍길동</div>
+                    <div>작성일: 2024-07-01</div>
+                </div>
+            </div>
+            <div class="board-item">
+                <div class="board-item-title">게시글 제목 2</div>
+                <div class="board-item-desc">게시글 간단한 설명...</div>
+                <div class="board-item-meta">
+                    <div>작성자: 이몽룡</div>
+                    <div>작성일: 2024-07-02</div>
+                </div>
+            </div>
+            <div class="board-item">
+                <div class="board-item-title">게시글 제목 3</div>
+                <div class="board-item-desc">게시글 간단한 설명...</div>
+                <div class="board-item-meta">
+                    <div>작성자: 성춘향</div>
+                    <div>작성일: 2024-07-03</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

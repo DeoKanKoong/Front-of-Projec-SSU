@@ -3,287 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>아이디 찾기</title>
-    <style>
-        @font-face {
-            font-family: 'S-Core Dream';
-            src: url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream5.woff2) format('woff2'),
-            url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream5.woff) format('woff');
-            font-weight: 500;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'S-Core Dream', sans-serif;
-            background: #F5F5F5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .container {
-            width: 662px;
-            padding: 30px;
-            background: white;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 35px;
-        }
-
-        .tab-container {
-            width: 530px;
-            height: 43px;
-            display: flex;
-            position: relative;
-            border-bottom: 2px solid #C6C6C6;
-        }
-
-        .tab {
-            width: 50%;
-            height: 43px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 19px;
-            font-weight: 500;
-            line-height: 19px;
-            cursor: pointer;
-        }
-
-        .tab.active {
-            color: #7F1DFF;
-            border-bottom: 2px solid #925FF0;
-        }
-
-        .tab.inactive {
-            color: #8F8F8F;
-        }
-
-        .input-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .input-group {
-            width: 300px;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .input-wrapper {
-            width: 100%;
-            position: relative;
-        }
-
-        .input-field {
-            width: 100%;
-            height: 48px;
-            background: white;
-            border-radius: 10px;
-            border: 3px #9747FF solid;
-            padding: 0 15px;
-            font-size: 14px;
-            line-height: 14px;
-            font-weight: 500;
-            color: black;
-            box-sizing: border-box;
-        }
-
-        .input-label {
-            position: absolute;
-            top: -10px;
-            left: 15px;
-            background: white;
-            padding: 0 5px;
-            font-size: 14px;
-            line-height: 14px;
-            font-weight: 500;
-            color: black;
-        }
-
-        .error-message {
-            color: red;
-            font-size: 12px;
-            margin-top: 5px;
-        }
-
-        .button {
-            width: 300px;
-            height: 40px;
-            background: #9747FF;
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 14px;
-            cursor: pointer;
-        }
-
-        .link {
-            color: #7F1DFF;
-            cursor: pointer;
-            text-decoration: underline;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .send-code-button {
-            position: absolute;
-            top: 8px;
-            right: 10px;
-            height: 32px;
-            padding: 0 10px;
-            background: #9747FF;
-            color: white;
-            border: none;
-            border-radius: 16px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/Forgotten.css">
+    <script src="js/ForgottenId.js" defer></script>
 </head>
 <body>
-<div class="container">
-    <img src="https://via.placeholder.com/177x90" alt="로고" />
-    <div class="tab-container">
-        <div class="tab active">아이디 찾기</div>
-        <div class="tab inactive" onclick="location.href='ForgottenPw'">비밀번호 찾기</div>
-    </div>
-    <div class="input-container">
-        <div class="input-group">
-            <div class="input-wrapper">
-                <input type="text" class="input-field" id="name" />
-                <div class="input-label">이름</div>
-                <div class="error-message" id="nameError"></div>
-            </div>
-            <div class="input-wrapper">
-                <input type="email" class="input-field" id="email" />
-                <div class="input-label">이메일</div>
-                <button class="send-code-button" onclick="sendVerificationCode()">인증코드 전송</button>
-                <div class="error-message" id="emailError"></div>
-            </div>
-            <div class="input-wrapper">
-                <input type="text" class="input-field" id="code" />
-                <div class="input-label">인증코드</div>
-                <div class="error-message" id="codeError"></div>
-            </div>
+    <div class="container">
+        <img src="logo.png" class="logo" />
+        <div class="tab-container">
+            <div class="tab active">아이디 찾기</div>
+            <div class="tab inactive" onclick="location.href='ForgottenPw.html'">비밀번호 찾기</div>
         </div>
-        <div class="button" onclick="validateForm()">확인</div>
+        <div class="input-container">
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <input type="text" class="input-field" id="name" />
+                    <div class="input-label">이름</div>
+                    <div class="error-message" id="nameError"></div>
+                </div>
+                <div class="input-wrapper email-group">
+                    <div class="email-wrapper">
+                        <input type="email" class="input-field" id="email" />
+                        <button class="verification-button" onclick="sendVerificationCode()">받기</button>
+                    </div>
+                    <div class="input-label">이메일</div>
+                    <div class="error-message" id="emailError"></div>
+                </div>
+                <div class="input-wrapper">
+                    <input type="text" class="input-field" id="code" />
+                    <div class="input-label">인증코드</div>
+                    <div class="error-message" id="codeError"></div>
+                </div>
+            </div>
+            <div class="button" onclick="validateForm()">확인</div>
+        </div>
     </div>
-</div>
-<script>
-    function validateForm() {
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const code = document.getElementById('code').value;
-        const nameError = document.getElementById('nameError');
-        const emailError = document.getElementById('emailError');
-        const codeError = document.getElementById('codeError');
-
-        let valid = true;
-
-        // 초기화
-        nameError.textContent = '';
-        emailError.textContent = '';
-        codeError.textContent = '';
-
-        // 이름 유효성 검사
-        if (!name) {
-            nameError.textContent = '유효한 이름을 입력해주세요.';
-            valid = false;
-        }
-
-        // 이메일 유효성 검사
-        if (!validateEmail(email)) {
-            emailError.textContent = '유효한 이메일을 입력해주세요.';
-            valid = false;
-        }
-
-        // 인증코드 유효성 검사
-        if (!code) {
-            codeError.textContent = '유효한 인증코드를 입력해주세요.';
-            valid = false;
-        }
-
-        if (valid) {
-            // 백엔드에 데이터 전송 (예시)
-            fetch('/validate', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ name, email, code })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (!data.valid) {
-                        if (data.errors.name) {
-                            nameError.textContent = data.errors.name;
-                        }
-                        if (data.errors.email) {
-                            emailError.textContent = data.errors.email;
-                        }
-                        if (data.errors.code) {
-                            codeError.textContent = data.errors.code;
-                        }
-                    } else {
-                        alert('유효한 입력입니다.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        }
-    }
-
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(String(email).toLowerCase());
-    }
-
-    function sendVerificationCode() {
-        const email = document.getElementById('email').value;
-        const emailError = document.getElementById('emailError');
-
-        emailError.textContent = '';
-
-        if (!validateEmail(email)) {
-            emailError.textContent = '유효한 이메일을 입력해주세요.';
-            return;
-        }
-
-        // 이메일로 인증 코드 전송 (예시)
-        fetch('/api/email/send-code', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email })
-        })
-            .then(response => response.text())
-            .then(data => {
-                if (data !== "Verification code sent successfully") {
-                    emailError.textContent = '인증 코드 전송에 실패했습니다. 다시 시도해주세요.';
-                } else {
-                    alert('인증 코드가 이메일로 전송되었습니다.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                emailError.textContent = '인증 코드 전송에 실패했습니다. 다시 시도해주세요.';
-            });
-    }
-</script>
 </body>
 </html>

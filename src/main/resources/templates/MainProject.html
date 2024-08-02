@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>커뮤니티</title>
+    <style>
+        @font-face {
+            font-family: 'S-Core Dream';
+            src: url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream5.woff2) format('woff2'),
+                 url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream5.woff) format('woff');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'S-Core Dream', sans-serif;
+            background: #585858;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100%;
+            background: #585858;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .navbar {
+            width: 100%;
+            height: 113px;
+            background: black;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo-container {
+            width: 58px;
+            height: 58px;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-container .logo-part {
+            width: 37.66px;
+            height: 37.72px;
+            position: absolute;
+            transform: rotate(-136deg);
+        }
+
+        .logo-container .logo-part div {
+            background: white;
+            position: absolute;
+        }
+
+        .logo-container .logo-part div:nth-child(1) {
+            width: 22.68px;
+            height: 22.70px;
+            left: -0.34px;
+            top: -21.22px;
+            transform: rotate(-136deg);
+        }
+
+        .logo-container .logo-part div:nth-child(2) {
+            width: 34.98px;
+            height: 34.98px;
+            left: -0.01px;
+            top: -1.86px;
+            transform: rotate(-136deg);
+        }
+
+        .logo-container .logo-part div:nth-child(3) {
+            width: 22.68px;
+            height: 22.69px;
+            left: 0px;
+            top: 0px;
+            transform: rotate(-136deg);
+        }
+
+        .logo-border {
+            width: 58px;
+            height: 58px;
+            position: absolute;
+            border: 1px white solid;
+        }
+
+        .navbar-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .community {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background: rgba(146, 95, 240, 0);
+            border: 1px white solid;
+            padding: 14px 35px;
+            border-radius: 30px;
+        }
+
+        .community-text {
+            color: white;
+            font-size: 28px;
+            font-family: 'S-Core Dream';
+            font-weight: 500;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100%;
+            background: black;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            transition: 0.3s;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+            z-index: 1000;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar-content {
+            color: white;
+            font-size: 20px;
+            font-family: 'S-Core Dream';
+            padding: 10px 20px;
+            border-bottom: 1px solid white;
+        }
+
+        .content-inner {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-image {
+            width: 163px;
+            height: 75px;
+            border: 3px white solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-content">홈</div>
+        <div class="sidebar-content">커뮤니티</div>
+        <div class="sidebar-content">프로젝트</div>
+        <div class="sidebar-content">채팅</div>
+        <div class="sidebar-content">마이페이지</div>
+    </div>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo-container" onclick="toggleSidebar()">
+                <div class="logo-part">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="logo-border"></div>
+            </div>
+            <div class="navbar-content">
+                <img class="logo-image" src="https://via.placeholder.com/163x75" alt="Logo">
+                <div class="community">
+                    <div class="community-text">커뮤니티</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

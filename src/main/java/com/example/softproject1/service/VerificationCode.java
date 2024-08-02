@@ -29,7 +29,7 @@ public class VerificationCode {
 
         return String.format(
                 """
-                        [Verification Code] 
+                        [이메일 인증 코드] 
                         %s
                         Expired At : %s
                                 """,

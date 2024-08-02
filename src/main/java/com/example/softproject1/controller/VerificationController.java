@@ -18,7 +18,7 @@ public class VerificationController {
 
     @GetMapping("/verification")
     public String getVerificationPage() {
-        return "verification"; // verification.html을 반환
+        return "ForgottenId"; // verification.html을 반환
     }
 
     @PostMapping("/sendVerificationEmail")
@@ -29,7 +29,7 @@ public class VerificationController {
         } catch (Exception e) {
             model.addAttribute("message", "Failed to send verification email: " + e.getMessage());
         }
-        return "verification"; // 결과를 보여주는 페이지로 이동
+        return "ForgottenId"; // 결과를 보여주는 페이지로 이동
     }
 
     @PostMapping("/verify")
@@ -40,6 +40,6 @@ public class VerificationController {
         } catch (Exception e) {
             model.addAttribute("message", "Verification failed: " + e.getMessage());
         }
-        return "verification"; // 결과 페이지로 이동
+        return "ForgottenId"; // 결과 페이지로 이동
     }
 }

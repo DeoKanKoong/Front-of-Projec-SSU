@@ -7,35 +7,39 @@
     <script src="/js/ForgottenPw.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <img src="/logo.png" class="Logo"/>
-        <div class="tab-container">
-            <div class="tab inactive" onclick="location.href='ForgottenId'">아이디 찾기</div>
-            <div class="tab active">비밀번호 찾기</div>
-        </div>
-        <div class="input-container">
-            <div class="input-group">
-                <div class="input-wrapper">
-                    <input type="text" class="input-field" id="id" />
-                    <div class="input-label">아이디</div>
-                    <div class="error-message" id="idError"></div>
+<div class="container">
+    <img src="/logo.png" class="Logo"/>
+    <div class="tab-container">
+        <div class="tab inactive" onclick="location.href='ForgottenId'">아이디 찾기</div>
+        <div class="tab active">비밀번호 찾기</div>
+    </div>
+    <div class="input-container">
+        <div class="input-group">
+            <div class="input-wrapper">
+                <input type="text" class="input-field" id="id" />
+                <div class="input-label">아이디</div>
+                <div class="error-message" id="idError"></div>
+            </div>
+            <div class="input-wrapper email-group">
+                <div class="email-wrapper">
+                    <form id="verificationForm" action="/sendPwVerificationEmail" method="post">
+                        <input type="email" class="input-field" id="email" name="email" required />
+                        <button type="submit" class="verification-button">받기</button>
+                    </form>
                 </div>
-                <div class="input-wrapper email-group">
-                    <div class="email-wrapper">
-                        <input type="email" class="input-field" id="email" />
-                        <button class="verification-button" onclick="sendVerificationCode()">받기</button>
-                    </div>
-                    <div class="input-label">이메일</div>
-                    <div class="error-message" id="emailError"></div>
-                </div>
-                <div class="input-wrapper">
-                    <input type="text" class="input-field" id="code" />
+                <div class="input-label">이메일</div>
+                <div class="error-message" id="emailError"></div>
+            </div>
+            <div class="input-wrapper">
+                <form id="codeVerificationForm" action="/verifyPwCode" method="post">
+                    <input type="text" class="input-field" id="code" name="code" required />
                     <div class="input-label">인증코드</div>
                     <div class="error-message" id="codeError"></div>
-                </div>
+                    <button type="submit" class="button">확인</button>
+                </form>
             </div>
-            <div class="button" onclick="validateForm()">확인</div>
         </div>
     </div>
+</div>
 </body>
 </html>

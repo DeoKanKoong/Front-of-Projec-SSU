@@ -1,8 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('.button').addEventListener('click', function() {
-        validateForm();
-    });
-
     document.getElementById('verificationForm').addEventListener('submit', function(event) {
         event.preventDefault();
         sendVerificationCode();
@@ -10,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('codeVerificationForm').addEventListener('submit', function(event) {
         event.preventDefault();
-        verifyCode();
+        validateForm();
     });
 });
 
@@ -41,6 +37,7 @@ function validateForm() {
     const nameError = document.getElementById('nameError');
     const emailError = document.getElementById('emailError');
     const codeError = document.getElementById('codeError');
+    const resultMessage = document.getElementById('resultMessage');
 
     let valid = true;
 
@@ -48,6 +45,7 @@ function validateForm() {
     nameError.textContent = '';
     emailError.textContent = '';
     codeError.textContent = '';
+    resultMessage.textContent = '';
 
     // 이름 유효성 검사
     if (!name) {
@@ -68,25 +66,14 @@ function validateForm() {
     }
 
     if (valid) {
-        window.location.href = "/login";
+        // 실제 인증 코드 확인 로직을 여기에 추가
+        alert('인증이 성공적으로 완료되었습니다.');
+
+        // 폼 전송
+        document.getElementById('codeVerificationForm').submit();
+    } else {
+        resultMessage.textContent = '입력 정보를 다시 확인해주세요.';
     }
-}
-
-function verifyCode() {
-    const verificationCode = document.getElementById('verificationCode').value;
-    const resultMessage = document.getElementById('resultMessage');
-
-    // 인증 코드 유효성 검사
-    if (!verificationCode) {
-        resultMessage.textContent = '유효한 인증코드를 입력해주세요.';
-        return;
-    }
-
-    // 실제 인증 코드 확인 로직을 여기에 추가
-    alert('인증이 성공적으로 완료되었습니다.');
-
-    // 폼 전송
-    document.getElementById('codeVerificationForm').submit();
 }
 
 function validateEmail(email) {

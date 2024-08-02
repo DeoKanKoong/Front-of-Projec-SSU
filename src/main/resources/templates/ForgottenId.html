@@ -31,12 +31,14 @@
                 <div class="error-message" id="emailError"></div>
             </div>
             <div class="input-wrapper">
-                <input type="text" class="input-field" id="code" />
-                <div class="input-label">인증코드</div>
-                <div class="error-message" id="codeError"></div>
+                <form id="codeVerificationForm" action="/verify" method="post">
+                    <input type="text" class="input-field" id="code" name="code" required />
+                    <div class="input-label">인증코드</div>
+                    <div class="error-message" id="codeError"></div>
+                    <button type="submit" class="button">확인</button>
+                </form>
             </div>
         </div>
-        <div class="button" onclick="validateForm()">확인</div>
     </div>
 </div>
 </body>

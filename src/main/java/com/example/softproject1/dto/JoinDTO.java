@@ -12,4 +12,7 @@ public class JoinDTO {
     private String department;
     private String grade;
     private String phoneNumber;
+    private String email;
+    private String Introduce;
+    private String portfolio;
 }

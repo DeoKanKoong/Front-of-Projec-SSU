@@ -38,7 +38,7 @@ public class MainController {
             return "indextologin";
         }
 
-        return "index";
+        return "MainCommunity";
     }
 
     @GetMapping("/loginto")

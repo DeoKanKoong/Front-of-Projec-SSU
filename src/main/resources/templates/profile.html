@@ -1,52 +1,146 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>프로필</title>
     <style>
+        @font-face {
+            font-family: 'SCoreDream';
+            font-weight: 500;
+            font-style: normal;
+            src: url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream5.woff2) format('woff2'),
+            url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream5.woff) format('woff');
+            font-display: swap;
+        }
+
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
-            background-color: #f0f0f0;
+            padding: 0;
+            font-family: 'SCoreDream', sans-serif;
+            background: #F5F5F5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
-        .profile-container {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 600px;
-            margin: 0 auto;
+
+        .container {
+            width: 494px;
+            background: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+            border-radius: 19px;
+            padding: 41px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 28px;
         }
+
+        .logo {
+            width: 184px;
+            height: 85px;
+        }
+
+        .profile-group {
+            display: flex;
+            flex-direction: column;
+            gap: 19px;
+            width: 339px;
+        }
+
+        .profile-wrapper {
+            position: relative;
+        }
+
         .profile-field {
-            margin-bottom: 10px;
+            width: 100%;
+            height: 48px;
+            background: white;
+            border-radius: 10px;
+            border: 3px #9747FF solid;
+            padding: 0 15px;
+            font-size: 14px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
         }
-        .profile-field span {
-            font-weight: bold;
+
+        .profile-label {
+            position: absolute;
+            left: 15px;
+            top: -10px;
+            background: white;
+            padding: 0 5px;
+            color: black;
+            font-size: 14px;
+            line-height: 14px;
+        }
+
+        .row {
+            display: flex;
+            gap: 14px;
+        }
+
+        .back-button {
+            width: 339px;
+            padding: 15px 0;
+            background: #925FF0;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 19px;
+            cursor: pointer;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
-<div class="profile-container">
-    <h1>프로필</h1>
-    <div class="profile-field">
-        <span>아이디:</span> <span th:text="${user.username}"></span>
+<div class="container">
+    <img src="https://via.placeholder.com/184x85" alt="로고" class="logo">
+    <div class="profile-group">
+        <div class="profile-wrapper">
+            <div class="profile-label">아이디</div>
+            <div class="profile-field" th:text="${user.username}"></div>
+        </div>
+        <div class="profile-wrapper">
+            <div class="profile-label">이름</div>
+            <div class="profile-field" th:text="${user.name}"></div>
+        </div>
+        <div class="profile-wrapper">
+            <div class="profile-label">학과(부)</div>
+            <div class="profile-field" th:text="${user.department}"></div>
+        </div>
+        <div class="row">
+            <div class="profile-wrapper" style="width: 239px;">
+                <div class="profile-label">학년</div>
+                <div class="profile-field" th:text="${user.grade}"></div>
+            </div>
+            <div class="profile-wrapper" style="width: 86px;">
+                <div class="profile-label">전화번호</div>
+                <div class="profile-field" th:text="${user.phoneNumber}"></div>
+            </div>
+        </div>
+        <div class="profile-wrapper">
+            <div class="profile-label">이메일</div>
+            <div class="profile-field" th:text="${user.email}"></div>
+        </div>
+        <div class="profile-wrapper">
+            <div class="profile-label">직무 스택</div>
+            <div class="profile-field" th:text="${user.jobStack}"></div>
+        </div>
+        <div class="profile-wrapper">
+            <div class="profile-label">포트폴리오</div>
+            <div class="profile-field" th:text="${user.portfolio}"></div>
+        </div>
+        <div class="profile-wrapper">
+            <div class="profile-label">본인 설명</div>
+            <div class="profile-field" th:text="${user.description}" style="height: auto;"></div>
+        </div>
     </div>
-    <div class="profile-field">
-        <span>이름:</span> <span th:text="${user.name}"></span>
-    </div>
-    <div class="profile-field">
-        <span>학과(부):</span> <span th:text="${user.department}"></span>
-    </div>
-    <div class="profile-field">
-        <span>학년:</span> <span th:text="${user.grade}"></span>
-    </div>
-    <div class="profile-field">
-        <span>전화번호:</span> <span th:text="${user.phoneNumber}"></span>
-    </div>
-    <div class="profile-field">
-        <span>역할:</span> <span th:text="${user.role}"></span>
-    </div>
-    <a href="/loginto">메인 페이지로 돌아가기</a>
+    <a href="/loginto" class="back-button">메인 페이지로 돌아가기</a>
 </div>
 </body>
 </html>

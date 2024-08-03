@@ -9,7 +9,7 @@ import java.util.Collection;
 
 public class CustomUserDetails implements UserDetails {
 
-    private UserEntity userEntity;
+    private final UserEntity userEntity;
 
     public CustomUserDetails(UserEntity userEntity) {
         this.userEntity = userEntity;
@@ -73,5 +73,17 @@ public class CustomUserDetails implements UserDetails {
 
     public String getPhoneNumber() {
         return userEntity.getPhoneNumber();
+    }
+
+    public String getEmail() {
+        return userEntity.getEmail();
+    }
+
+    public String getIntroduce() {
+        return userEntity.getIntroduce();
+    }
+
+    public String getPortfolio() {
+        return userEntity.getPortfolio();
     }
 }

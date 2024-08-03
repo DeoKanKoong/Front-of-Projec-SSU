@@ -31,6 +31,9 @@ public class JoinService {
         data.setDepartment(joinDTO.getDepartment());
         data.setGrade(joinDTO.getGrade());
         data.setPhoneNumber(joinDTO.getPhoneNumber());
+        data.setEmail(joinDTO.getEmail());
+        data.setIntroduce(joinDTO.getIntroduce());
+        data.setPortfolio(joinDTO.getPortfolio());
         data.setRole("ROLE_USER");
 
         // UserEntity 객체를 데이터베이스에 저장

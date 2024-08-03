@@ -3,15 +3,13 @@
 <table class="table">
     <thead>
     <tr>
-        <th scope="col">Id</th>
-        <th scope="col">제목<h>
-            <th scope="col">내용</th>
+        <th scope="col">제목</th>
+        <th scope="col">내용</th>
     </tr>
     </thead>
     <tbody>
     {{#article}}
         <tr>
-            <th>{{id}}</th>
             <td>{{title}}</td>
             <td>{{content}}</td>
         </tr>
@@ -21,7 +19,7 @@
 
 <a href="/articles/{{article.id}}/edit" class="btn btn-primary">수정</a>
 <a href="/articles/{{article.id}}/delete" class="btn btn-danger">삭제</a>
-<a href="/articles">Go to Article List</a>
+<a href="/articles">게시판으로 이동</a>
 
 {{>comments/_comments}}
 {{>layouts/footer}}

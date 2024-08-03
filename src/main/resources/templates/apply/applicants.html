@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Applicants for Article</title>
+</head>
+<body>
+<h2>Applicants for Article: {{ article.title }}</h2>
+<ul>
+    <#list applicants as applicant>
+    <li><a href="/profile/${applicant.username}">${applicant.name}</a></li>
+</list>
+</ul>
+</body>
+</html>

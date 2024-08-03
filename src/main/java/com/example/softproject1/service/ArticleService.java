@@ -3,17 +3,17 @@ package com.example.softproject1.service;
 
 import com.example.softproject1.dto.ArticleForm;
 import com.example.softproject1.entity.Article;
-import com.example.softproject1.entity.UserEntity;
 import com.example.softproject1.repository.ArticleRepository;
-import com.example.softproject1.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -65,7 +65,18 @@ public class ArticleService {
                 .orElseThrow(()->new IllegalArgumentException("결제 실패!"));
         return articleList;
     }
+    public void create(String title,String content){
+        Article a=new Article(null, title, content);
+        a.setTitle(title);
+        a.setContent(content);
+//        a.setCreateDate(LocalDateTime.now());
+        this.articleRepository.save(a);
+    }
 
+    public Page<Article> getList(int page){
+        Pageable pageable=PageRequest.of(page,10);
+        return this.articleRepository.findAll(pageable);
+    }
 
 
 }

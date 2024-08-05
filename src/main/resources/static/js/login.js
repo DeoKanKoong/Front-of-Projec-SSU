@@ -40,30 +40,36 @@ function validateForm() {
 
     if (valid) {
         // 서버로 로그인 요청 보내기
-        fetch('/login', {
+        const formData = new URLSearchParams();
+        formData.append('username', username);
+        formData.append('password', password);
+
+        fetch('http://localhost:8080/loginProc', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                //'Content-Type': 'application/x-www-form-urlencoded'
             },
-            body: JSON.stringify({ username: username, password: password })
+            body: formData
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                window.location.href = '/MainCommunity.html';
-            } else {
-                if (data.error === 'invalid_username') {
-                    usernameError.textContent = '아이디가 틀렸습니다.';
-                } else if (data.error === 'invalid_password') {
-                    passwordError.textContent = '비밀번호가 틀렸습니다.';
+            .then(response => {
+                if (response.ok) {
+                    console.log("통신 성공");
+                    console.log("Username: " + username);
+                    console.log("Password: " + password);
+                    window.location.href = '/'; // 로그인 성공 시 리다이렉트
                 } else {
-                    alert('알 수 없는 오류가 발생했습니다.');
+                    response.json().then(data => {
+                        if (data.error === 'invalid_credentials') {
+                            usernameError.textContent = '아이디 또는 비밀번호가 틀렸습니다.';
+                        } else {
+                            alert('알 수 없는 오류가 발생했습니다.');
+                        }
+                    });
                 }
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('서버와의 통신 중 오류가 발생했습니다.');
-        });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('서버와의 통신 중 오류가 발생했습니다.');
+            });
     }
 }

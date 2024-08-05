@@ -35,7 +35,7 @@ public class MainController {
 
             model.addAttribute("name", user.getName());
             model.addAttribute("department", user.getDepartment());
-            return "indextologin";
+            return "MainCommunity"; // 여기 체크해야함 8월 5일  메인 화면 리다이렉션 이상하게 꼬임
         }
 
         return "MainCommunity";
@@ -49,7 +49,7 @@ public class MainController {
 
         model.addAttribute("name", user.getName());
         model.addAttribute("department", user.getDepartment());
-        return "indextologin";
+        return "MainCommunity";
     }
 
     @GetMapping("/profile")

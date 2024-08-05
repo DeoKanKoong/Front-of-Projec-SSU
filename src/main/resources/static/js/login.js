@@ -1,24 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('.login-button').addEventListener('click', function() {
-        validateForm();
-    });
+    document.querySelector('.login-button').addEventListener('click', login);
 });
 
 function redirectToJoin() {
-    window.location.href = '/join';
+    window.location.href = 'join.html';
 }
 
 function redirectToForgottenId() {
-    window.location.href = '/ForgottenId';
+    window.location.href = 'forgottenId.html';
 }
 
 function redirectToForgottenPw() {
-    window.location.href = '/ForgottenPw';
+    window.location.href = 'forgottenPw.html';
 }
 
-function validateForm() {
-    const username = document.querySelector('.input-box[type="text"]').value;
-    const password = document.querySelector('.input-box[type="password"]').value;
+function login() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
     const usernameError = document.getElementById('usernameError');
     const passwordError = document.getElementById('passwordError');
 
@@ -39,37 +37,34 @@ function validateForm() {
     }
 
     if (valid) {
-        // 서버로 로그인 요청 보내기
-        const formData = new URLSearchParams();
-        formData.append('username', username);
-        formData.append('password', password);
-
+        // 로그인 요청
         fetch('http://localhost:8080/loginProc', {
             method: 'POST',
             headers: {
-                //'Content-Type': 'application/x-www-form-urlencoded'
+                'Content-Type': 'application/json'
             },
-            body: formData
+            body: JSON.stringify({ username, password })
         })
-            .then(response => {
-                if (response.ok) {
-                    console.log("통신 성공");
-                    console.log("Username: " + username);
-                    console.log("Password: " + password);
-                    window.location.href = '/'; // 로그인 성공 시 리다이렉트
-                } else {
-                    response.json().then(data => {
-                        if (data.error === 'invalid_credentials') {
-                            usernameError.textContent = '아이디 또는 비밀번호가 틀렸습니다.';
-                        } else {
-                            alert('알 수 없는 오류가 발생했습니다.');
-                        }
-                    });
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('서버와의 통신 중 오류가 발생했습니다.');
-            });
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('로그인 실패');
+            }
+        })
+        .then(data => {
+            // 백엔드에서 유저 정보 받아와서 세션에 저장
+            sessionStorage.setItem('username', data.name);
+            sessionStorage.setItem('department', data.department);
+            sessionStorage.setItem('profilePic', data.profilePic);
+            sessionStorage.setItem('token', data.token); // 토큰 저장
+
+            // 로그인 성공 시 메인 커뮤니티 페이지로 이동
+            window.location.href = 'MainCommunity.html';
+        })
+        .catch(error => {
+            usernameError.textContent = '아이디 또는 비밀번호가 잘못되었습니다.';
+            console.error('로그인 오류:', error);
+        });
     }
 }

@@ -28,13 +28,13 @@ public class ArticleApiController {
     }
 
     // POST
-    @PostMapping("/api/articles")
-    public ResponseEntity<Article> create(@RequestBody ArticleForm dto) {
-        Article created = articleService.create(dto);
-        return (created != null) ?
-                ResponseEntity.status(HttpStatus.OK).body(created) :
-                ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-    }
+//    @PostMapping("/api/articles")
+//    public ResponseEntity<Article> create(@RequestBody ArticleForm dto) {
+////        Article created = articleService.create(dto);
+//        return (created != null) ?
+//                ResponseEntity.status(HttpStatus.OK).body(created) :
+//                ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+//    }
 
     // PATCH
     @PatchMapping("/api/articles/{id}")

@@ -55,4 +55,7 @@ public class CommentApiController {
         // 결과 응답
         return ResponseEntity.status(HttpStatus.OK).body(deletedDto);
     }
+
+//    @PostMapping("/create/{id}")
+//    public String createAnswer(Model model,@PathVariable("id") Integer id, @Valid Answer)
 }

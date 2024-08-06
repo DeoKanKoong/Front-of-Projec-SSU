@@ -1,10 +1,33 @@
-
 {{>layouts/header}}
 
-<form class="container" action="/articles/create" method="post">
+<form class="container" action="/articles/create" method="post" enctype="multipart/form-data">
     <div class="mb-3">
         <label class="form-label">제목</label>
         <input type="text" class="form-control" name="title">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">모집인원</label>
+        <input type="number" class="form-control" name="numberOfPeople">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">마감기한</label>
+        <input type="date" class="form-control" name="deadline">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">조건</label>
+        <input type="text" class="form-control" name="condition">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">우대사항</label>
+        <input type="text" class="form-control" name="preferentialTreatment">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">분야</label>
+        <input type="text" class="form-control" name="field">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">대표사진 첨부</label>
+        <input type="file" class="form-control" name="representativeImage">
     </div>
     <div class="mb-3">
         <label class="form-label">내용</label>
@@ -15,4 +38,3 @@
 </form>
 
 {{>layouts/footer}}
-

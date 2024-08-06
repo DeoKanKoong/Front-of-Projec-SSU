@@ -5,6 +5,7 @@ import com.example.softproject1.entity.Article;
 import com.example.softproject1.entity.UserEntity;
 import com.example.softproject1.repository.ArticleRepository;
 import com.example.softproject1.repository.UserRepository;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -23,22 +24,24 @@ public class MainController {
     private ArticleRepository articleRepository;
 
     @GetMapping("/")
-    public String showHomePage(Model model) {
+    public String showHomePage(Model model, HttpSession session) {
         List<Article> articles = articleRepository.findAll();
         model.addAttribute("articles", articles);
 
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (principal instanceof CustomUserDetails) {
-            CustomUserDetails userDetails = (CustomUserDetails) principal;
+        if (principal instanceof CustomUserDetails userDetails) {
             String username = userDetails.getUsername();
             UserEntity user = userRepository.findByUsername(username);
 
-            model.addAttribute("name", user.getName());
-            model.addAttribute("department", user.getDepartment());
-            return "MainCommunity"; // 여기 체크해야함 8월 5일  메인 화면 리다이렉션 이상하게 꼬임
+            // 세션에 사용자 정보 저장
+            session.setAttribute("username", user.getUsername());
+            session.setAttribute("name", user.getName());
+            session.setAttribute("department", user.getDepartment());
+
+            return "MainCommunity"; // 메인 화면 리다이렉션
         }
 
-        return "MainCommunity";
+        return "MainCommunity"; // 로그인 페이지로 리다이렉션
     }
 
     @GetMapping("/loginto")

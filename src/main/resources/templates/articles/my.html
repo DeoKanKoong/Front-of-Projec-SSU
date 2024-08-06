@@ -1,0 +1,38 @@
+<!-- my.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Articles</title>
+</head>
+<body>
+<h1>My Articles</h1>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Actions</th>
+    </tr>
+    <th:block th:each="article : ${paging.content}">
+        <tr>
+            <td th:text="${article.title}">Title</td>
+            <td th:text="${article.content}">Content</td>
+            <td>
+                <a th:href="@{/articles/{id}(id=${article.id})}">View</a>
+                <a th:href="@{/articles/{id}/edit(id=${article.id})}">Edit</a>
+                <a th:href="@{/articles/{id}/delete(id=${article.id})}">Delete</a>
+            </td>
+        </tr>
+    </th:block>
+</table>
+<div>
+    <span th:text="${paging.number + 1}"></span> /
+    <span th:text="${paging.totalPages}"></span>
+</div>
+<div th:if="${paging.hasPrevious()}">
+    <a th:href="@{/articles/my(page=${paging.number - 1})}">Previous</a>
+</div>
+<div th:if="${paging.hasNext()}">
+    <a th:href="@{/articles/my(page=${paging.number + 1})}">Next</a>
+</div>
+</body>
+</html>

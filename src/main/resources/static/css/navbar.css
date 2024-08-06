@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'S-Core Dream';
+    src: url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream5.woff2) format('woff2'),
+    url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream5.woff) format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'S-Core Dream', sans-serif;
+}
+
+.navbar {
+    width: 100%;
+    padding: 10px 20px;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    min-width: 800px; /* 추가된 부분 */
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.navbar img {
+    width: 168px;
+    height: 71px;
+    cursor: pointer;
+}
+
+.navbar-item {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    white-space: nowrap; /* 추가된 부분 */
+}
+
+.navbar-item div {
+    color: black;
+    font-size: 24px;
+    font-family: 'S-Core Dream', sans-serif;
+    font-weight: 500;
+    line-height: 24px;
+    word-wrap: break-word;
+}
+
+.navbar-item.project {
+    width: 150px;
+    height: 45px;
+    padding: 10px 20px;
+    background: #925FF0;
+    border-radius: 268px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    white-space: nowrap; /* 추가된 부분 */
+}
+
+.navbar-item.project div {
+    color: white;
+    font-size: 20px;
+    font-family: 'S-Core Dream', sans-serif;
+    font-weight: 500;
+    line-height: 20px;
+    word-wrap: break-word;
+}
+
+.arrow-icon {
+    width: 26px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

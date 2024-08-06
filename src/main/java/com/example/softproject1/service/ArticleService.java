@@ -3,6 +3,7 @@ package com.example.softproject1.service;
 
 import com.example.softproject1.dto.ArticleForm;
 import com.example.softproject1.entity.Article;
+import com.example.softproject1.entity.UserEntity;
 import com.example.softproject1.repository.ArticleRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,9 @@ public class ArticleService {
     public Article show(Long id){
         return articleRepository.findById(id).orElse(null);
     }
-    public Article create(ArticleForm dto){
+    public Article create(ArticleForm dto, UserEntity author){
         Article article = dto.toEntity();
+        article.setAuthor(author);
         if(article.getId()!=null){
             return null;
         }
@@ -56,13 +58,10 @@ public class ArticleService {
 
     @Transactional
     public List<Article> createArticles(List<ArticleForm> dtos){
-        List<Article> articleList=dtos.stream()
-                .map(dto->dto.toEntity())
+        List<Article> articleList = dtos.stream()
+                .map(ArticleForm::toEntity)
                 .collect(Collectors.toList());
-        articleList.stream()
-                .forEach(article->articleRepository.save(article));
-        articleRepository.findById(-1L)
-                .orElseThrow(()->new IllegalArgumentException("결제 실패!"));
+        articleRepository.saveAll(articleList);
         return articleList;
     }
     public void create(String title,String content){
@@ -78,5 +77,9 @@ public class ArticleService {
         return this.articleRepository.findAll(pageable);
     }
 
+    public Page<Article> getUserArticles(UserEntity author, int page) {
+        Pageable pageable = PageRequest.of(page, 10);
+        return articleRepository.findByAuthor(author, pageable);
+    }
 
 }

@@ -1,0 +1,196 @@
+@font-face {
+    font-family: 'S-Core Dream';
+    src: url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream5.woff2) format('woff2'),
+         url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream5.woff) format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'S-Core Dream', sans-serif;
+    background: #EBEDF3;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: calc(100% - 93px);
+    margin-top: 100px;
+}
+
+.sidebar {
+    margin-top: 100px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.menu-item {
+    width: 120%;
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+    background: #c5aef0;
+    font-size: 24px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 50px;
+    transform: translateX(-15%);
+}
+
+.menu-item.active {
+    background: #8142f7;
+    width: 130%;
+    transform: translateX(-3%);
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 32px; 
+    font-weight: 500;
+    color: black;
+    text-align: center;
+}
+
+.accordion {
+    background-color: #6F00FF;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    width: 200px;
+    text-align: center;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-family: 'S-Core Dream', sans-serif;
+}
+
+.accordion.active:after {
+    content: "\2212"; 
+}
+
+.panel {
+    padding: 0;
+    background-color: transparent; 
+    display: none;
+    overflow: hidden;
+    width: 200px; 
+    border-radius: 5px;
+    position: absolute;
+    z-index: 1;
+}
+
+.panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.panel li {
+    padding: 10px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'S-Core Dream', sans-serif;
+}
+
+.panel li:hover {
+    background-color: #f2f2f2;
+}
+
+.status-table-container {
+    width: 80%;
+    max-width: 1200px; 
+    position: relative;
+}
+
+.status-table {
+    width: 100%; 
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.status-table th, .status-table td {
+    padding: 16px; 
+    text-align: center;
+    font-size: 18px; 
+}
+
+.status-table th {
+    background: #6F00FF;
+    color: white;
+    font-weight: 600;
+}
+
+.status-table tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+.status-table tr:nth-child(odd) {
+    background: #ffffff;
+}
+
+.status-table td {
+    color: #333;
+}
+
+.status-table select {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #6F00FF;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    outline: none;
+    transition: background-color 0.3s;
+    font-family: 'S-Core Dream', sans-serif;
+}
+
+.status-table select:hover {
+    background-color: #5500cc;
+}
+
+.status-table .profile-btn {
+    background: #6F00FF;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    padding: 10px 20px; 
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 16px;
+}
+
+.status-table .profile-btn:hover {
+    background: #5500cc;
+}

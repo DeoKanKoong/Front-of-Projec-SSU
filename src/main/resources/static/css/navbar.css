@@ -22,7 +22,7 @@ body {
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    min-width: 800px; /* 추가된 부분 */
+    min-width: 800px;
 }
 
 .navbar-left {
@@ -44,7 +44,7 @@ body {
     align-items: center;
     gap: 20px;
     cursor: pointer;
-    white-space: nowrap; /* 추가된 부분 */
+    white-space: nowrap; 
 }
 
 .navbar-item div {
@@ -60,19 +60,19 @@ body {
     width: 150px;
     height: 45px;
     padding: 10px 20px;
-    background: #925FF0;
+    background: #6F00FF;
     border-radius: 268px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
     cursor: pointer;
-    white-space: nowrap; /* 추가된 부분 */
+    white-space: nowrap; 
 }
 
 .navbar-item.project div {
     color: white;
-    font-size: 20px;
+    font-size: 23px;
     font-family: 'S-Core Dream', sans-serif;
     font-weight: 500;
     line-height: 20px;

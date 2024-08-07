@@ -9,23 +9,29 @@
 <body>
 <div class="navbar">
     <div class="navbar-left">
-        <img src="../static/img/logo.png" onclick="window.location.href='MainCommunity.html'" />
-        <div class="navbar-item" onclick="window.location.href='MyPage.html'">
+        <img src="../static/img/logo.png" onclick="navigateTo('MainCommunity.html')" />
+        <div class="navbar-item" onclick="navigateTo('MyPage.html')">
             <div>마이페이지</div>
         </div>
-        <div class="navbar-item" onclick="window.location.href='TeamRecruitBoard.html'">
+        <div class="navbar-item" onclick="navigateTo('TeamRecruitBoard.html')">
             <div>팀 모집 게시판</div>
         </div>
-        <div class="navbar-item" onclick="window.location.href='MyChatting.html'">
-            <div>채팅</div>
+        <div class="navbar-item" onclick="navigateTo('ContactBoard.html')">
+            <div>개인 컨택 게시판</div>
         </div>
     </div>
-    <div class="navbar-item project" onclick="window.location.href='ProjectIntro.html'">
+    <div class="navbar-item project" onclick="navigateTo('ProjectIntro.html')">
         <div>프로젝트</div>
         <div class="arrow-icon">
             <i class="fas fa-arrow-right"></i>
         </div>
     </div>
 </div>
+
+<script>
+function navigateTo(url) {
+    window.parent.location.href = url;
+}
+</script>
 </body>
 </html>
